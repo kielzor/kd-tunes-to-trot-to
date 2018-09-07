@@ -1,0 +1,15 @@
+.desktop-display {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  height: 60vh;
+  justify-content: center; }
+
+.desktop-button-parent {
+  display: flex;
+  width: 70%;
+  justify-content: space-between; }
+
+.desktop-container-button {
+  height: 12rem;
+  width: 12rem; }
