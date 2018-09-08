@@ -1,9 +1,6 @@
 import React, { Component } from 'react'
 import './DesktopDisplayContainer.css'
-import { Link, Route } from 'react-router-dom';
-import { ImportContainer } from '../importContainer/ImportContainer'
-import { WorkoutContainer } from '../workoutContainer/WorkoutContainer'
-
+import { Link } from 'react-router-dom';
 
 class DesktopDisplayContainer extends Component {
   constructor() {

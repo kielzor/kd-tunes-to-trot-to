@@ -5,13 +5,13 @@ import { NavLink } from 'react-router-dom'
 class Header extends Component {
   render() {
     return (
-      <div>
+      <div className='header-container'>
         {!this.props.desktopClicked && <h1 className='header'>TUNES TO TROT TO</h1>}
-        {this.props.desktopClicked && <h1 className='header'>Welcome: [ user ]</h1>}
-        {/* {this.props.desktopClicked &&  */}
-        <NavLink to='/'>
+        {this.props.desktopClicked && <h5 className='welcome-msg'>Welcome: [ user ]</h5>}
+        {this.props.desktopClicked && 
+        <NavLink to='/desktop-controller'>
           <button onClick={() => this.props.handleDesktopClick('back')}>BACK</button>
-        </NavLink>
+        </NavLink>}
       </div>
     )
   }

@@ -3,7 +3,7 @@ import './App.css';
 import { clientId, secretId } from '../../keys'
 import Header from '../header/header'
 import DesktopDisplayContainer from '../desktopDisplayContainer/DesktopDisplayContainer.js'
-import { Route, withRouter, Link } from 'react-router-dom';
+import { Route, withRouter } from 'react-router-dom';
 import { ImportContainer } from '../importContainer/ImportContainer'
 import { NewSongContainer } from '../newSongContainer/NewSongContainer'
 import { WorkoutContainer } from '../workoutContainer/WorkoutContainer'
@@ -59,7 +59,7 @@ class App extends Component {
       <div className="App">
         <Header desktopClicked={this.state.desktopClicked}
           handleDesktopClick={this.handleDesktopClick}/>
-        <Route exact path='/' render = {() => {
+        <Route exact path='/desktop-controller' render = {() => {
           return <DesktopDisplayContainer handleDesktopClick={this.handleDesktopClick}/>
         }} />
         <Route exact path='/import' render={() => {

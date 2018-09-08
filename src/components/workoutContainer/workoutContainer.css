@@ -1,0 +1,37 @@
+.new-workout-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+
+.workout-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 40%; }
+
+.new-workout-jog {
+  width: 40%; }
+
+.workout-inputs {
+  width: 100%; }
+
+.sample-select {
+  width: 65%; }
+
+.sample-duration {
+  width: 15%; }
+
+.preview-button {
+  width: 10%; }
+
+.select-button {
+  width: 10%; }
+
+.save-workout-button {
+  background-color: grey;
+  border-radius: 10%;
+  color: white;
+  margin-top: 2rem;
+  width: 7rem;
+  height: 2rem; }
