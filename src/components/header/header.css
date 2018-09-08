@@ -5,3 +5,12 @@
   display: flex;
   justify-content: space-around;
   align-items: center; }
+
+.welcome-msg {
+  width: 22%; }
+
+.header-buttons {
+  width: 22%; }
+
+.header-spacing {
+  width: 22%; }

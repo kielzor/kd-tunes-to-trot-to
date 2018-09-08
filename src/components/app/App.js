@@ -20,7 +20,8 @@ class App extends Component {
   }
   
   componentDidMount() {
-    this.setState({code: window.location.search.split('').splice(6,window.location.search.length).join('')})
+    this.setState({
+      code: window.location.search.split('').splice(6,window.location.search.length).join('')})
   }
 
   handleDesktopClick = (type) => {
@@ -87,9 +88,9 @@ class App extends Component {
         <Route exact path='/' render={() => {
           return (
           <div>
-            {!this.state.code.length && 
+            {!this.state.code && 
             <a href={`https://freesound.org/apiv2/oauth2/authorize/?client_id=${clientId}&response_type=code`}>Login with freesound</a>}
-            {this.state.code.length && 
+            {this.state.code && 
             <Link to='/desktop-controller'>
                <button onClick={this.handleSubmit}>Get Started!</button>
             </Link>}
