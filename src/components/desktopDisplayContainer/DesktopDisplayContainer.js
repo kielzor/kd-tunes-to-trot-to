@@ -3,13 +3,6 @@ import './DesktopDisplayContainer.css'
 import { Link } from 'react-router-dom';
 
 class DesktopDisplayContainer extends Component {
-  constructor() {
-    super()
-    this.state = {
-      displayType: null
-    }
-  }
-
   render() {
     return (
       <div className='desktop-display'>
