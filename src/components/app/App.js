@@ -1,27 +1,30 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import { clientId, secretId } from '../../keys'
+import { clientId } from '../../keys'
 import Header from '../header/header'
 import DesktopDisplayContainer from '../desktopDisplayContainer/DesktopDisplayContainer.js'
 import { Route, withRouter, Link } from 'react-router-dom';
-import { ImportContainer } from '../importContainer/ImportContainer'
+import ImportContainer from '../importContainer/ImportContainer'
 import { NewSongContainer } from '../newSongContainer/NewSongContainer'
-import { WorkoutContainer } from '../workoutContainer/WorkoutContainer'
+import WorkoutContainer from '../workoutContainer/WorkoutContainer'
+import { AudioPlayer } from '../musicPlayer/MusicPlayer'
+import { fetchUser, getComments } from '../../helpers/Fetch'
 // import { connect } from 'react-redux'
-
 
 class App extends Component {
   constructor() {
     super()
     this.state = {
       desktopClicked: false,
-      code: ''
+      code: '',
+      token: ''
     }
   }
   
-  componentDidMount() {
+  componentDidMount = () => {
+    let data = window.location.search
     this.setState({
-      code: window.location.search.split('').splice(6,window.location.search.length).join('')})
+      code: data.split('').splice(6,data.length).join('')})
   }
 
   handleDesktopClick = (type) => {
@@ -31,36 +34,17 @@ class App extends Component {
 
   logOut = () => {
     this.setState({
-      code: ''
+      code: '',
+      token: ''
     })
     this.handleDesktopClick('back')
   }
 
   handleSubmit = async () => {
-    try {
-      const response = await fetch(`https://freesound.org/apiv2/oauth2/access_token?client_id=${clientId}&client_secret=${secretId}&grant_type=authorization_code&code=${this.state.code}`,
-        { method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded', 
-            'accept': 'application/json',
-          }
-        })
-      const data = await response.json()
-      await this.setState({token: data.access_token})
-      await this.getComments()
-    } catch (error) {
-      console.log('error', error.message)
-    }
-  }
-
-  getComments = async () => {
-    const response = await fetch('https://freesound.org/apiv2/search/combined/?target=rhythm.bpm:120&filter=tag:loop', {
-      headers: {
-        "Authorization": `Bearer ${this.state.token}`
-      }
-    })
-    const data = await response.json()
-    console.log(data)
+    const token = await fetchUser(this.state.code)
+    await this.setState({ token })
+    const audio = await getComments(token)
+    await console.log(audio)
   }
 
   render() {
@@ -85,6 +69,9 @@ class App extends Component {
         <Route exact path='/workout' render={() => {
           return <WorkoutContainer />
         }} />
+        <Route exact path='/music-player' render={() => {
+          return <AudioPlayer />
+        }} />
         <Route exact path='/' render={() => {
           return (
           <div>
@@ -92,7 +79,9 @@ class App extends Component {
             <a href={`https://freesound.org/apiv2/oauth2/authorize/?client_id=${clientId}&response_type=code`}>Login with freesound</a>}
             {this.state.code && 
             <Link to='/desktop-controller'>
-               <button onClick={this.handleSubmit}>Get Started!</button>
+              <button 
+                className='get-started-button'
+                onClick={this.handleSubmit}>Get Started!</button>
             </Link>}
           </div>
           )}} />

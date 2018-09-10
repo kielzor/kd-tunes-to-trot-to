@@ -1,3 +1,10 @@
+p {
+  margin: 0 auto; }
+
+h3 {
+  font-size: 2rem;
+  margin: 1.5rem; }
+
 .new-workout-container {
   width: 100%;
   display: flex;
@@ -17,16 +24,18 @@
   width: 100%; }
 
 .sample-select {
-  width: 65%; }
+  width: 70%; }
 
 .sample-duration {
-  width: 15%; }
+  margin-left: .5rem;
+  height: 1.5rem;
+  width: 6rem; }
 
 .preview-button {
-  width: 10%; }
+  width: 15%; }
 
 .select-button {
-  width: 10%; }
+  width: 15%; }
 
 .save-workout-button {
   background-color: grey;
@@ -35,3 +44,7 @@
   margin-top: 2rem;
   width: 7rem;
   height: 2rem; }
+
+.speed-container {
+  display: flex;
+  align-items: center; }
