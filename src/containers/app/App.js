@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
 import './App.css';
 import { clientId } from '../../keys'
-import Header from '../header/header'
-import DesktopDisplayContainer from '../desktopDisplayContainer/DesktopDisplayContainer.js'
+import Header from '../../components/header/header'
+import DesktopDisplayContainer from '../../components/desktopDisplayContainer/DesktopDisplayContainer.js'
 import { Route, withRouter, Link } from 'react-router-dom';
 import ImportContainer from '../importContainer/ImportContainer'
-import { NewSongContainer } from '../newSongContainer/NewSongContainer'
+import { NewSongContainer } from '../../components/newSongContainer/NewSongContainer'
 import WorkoutContainer from '../workoutContainer/WorkoutContainer'
-import { AudioPlayer } from '../musicPlayer/MusicPlayer'
-import { fetchUser, getComments } from '../../helpers/Fetch'
-// import { connect } from 'react-redux'
+import MusicPlayer from '../../containers/musicPlayer/MusicPlayer'
+import { fetchUser, fetchAudio } from '../../helpers/Fetch'
+import { connect } from 'react-redux'
+import { storeJog, storeWarmup, storeSprint, populateWorkout } from '../../actions/index'
 
-class App extends Component {
+export class App extends Component {
   constructor() {
     super()
     this.state = {
-      desktopClicked: false,
       code: '',
       token: ''
     }
@@ -27,24 +27,26 @@ class App extends Component {
       code: data.split('').splice(6,data.length).join('')})
   }
 
-  handleDesktopClick = (type) => {
-    if (type === 'back') this.setState({ desktopClicked: false})
-    else this.setState ({ desktopClicked: true })
-  }
-
   logOut = () => {
     this.setState({
       code: '',
       token: ''
     })
-    this.handleDesktopClick('back')
   }
 
   handleSubmit = async () => {
     const token = await fetchUser(this.state.code)
     await this.setState({ token })
-    const audio = await getComments(token)
-    await console.log(audio)
+    const jogAudio = await fetchAudio(token, '14826')
+    await this.props.addJog(jogAudio)
+    const warmupAudio = await fetchAudio(token, '11118')
+    await this.props.addWarmup(warmupAudio)
+    const sprintAudio = await fetchAudio(token, '14826')
+    await this.props.addSprint(sprintAudio)
+    if (localStorage.length) {
+      const item = JSON.parse(localStorage.getItem('workout'))
+      this.props.populateWorkout(item)
+    }
   }
 
   render() {
@@ -52,13 +54,11 @@ class App extends Component {
       <div className="App">
         <Header 
           desktopClicked={this.state.desktopClicked}
-          handleDesktopClick={this.handleDesktopClick}
           logOut={this.logOut}
           loggedStatus={this.state.code}/>
         <Route exact path='/desktop-controller' render = {() => {
           return <DesktopDisplayContainer 
-            handleDesktopClick={this.handleDesktopClick}
-            getComments={this.getComments}/>
+            handleDesktopClick={this.handleDesktopClick}/>
         }} />
         <Route exact path='/import' render={() => {
           return <ImportContainer />
@@ -70,7 +70,7 @@ class App extends Component {
           return <WorkoutContainer />
         }} />
         <Route exact path='/music-player' render={() => {
-          return <AudioPlayer />
+          return <MusicPlayer />
         }} />
         <Route exact path='/' render={() => {
           return (
@@ -90,4 +90,11 @@ class App extends Component {
   }
 }
 
-export default withRouter((App));
+const mapDispatchToProps = dispatch => ({
+  addJog: audioClip => dispatch(storeJog(audioClip)),
+  addWarmup: audioClip => dispatch(storeWarmup(audioClip)),
+  addSprint: audioClip => dispatch(storeSprint(audioClip)),
+	populateWorkout: file => dispatch(populateWorkout(file))
+})
+
+export default withRouter(connect(null, mapDispatchToProps)(App));

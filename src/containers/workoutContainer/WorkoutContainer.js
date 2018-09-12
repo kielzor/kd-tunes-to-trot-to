@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './workoutContainer.css'
 import { connect } from 'react-redux'
+import { storeWorkout } from '../../actions/index'
 
 class WorkoutContainer extends Component {
 	constructor() {
@@ -13,7 +14,7 @@ class WorkoutContainer extends Component {
 			jogLength: 0,
 			jog: {},
 			sprintLength: 0,
-			sprint: {}
+			sprint: {},
 		}
 	}
 
@@ -21,13 +22,30 @@ class WorkoutContainer extends Component {
 		const { name, value } = e.target
 
 		this.setState ({
-			[name]: value
+			[name]: value,
 		})
+	}
+
+	saveWorkout = (e) => {
+		e.preventDefault()
+		let newWorkout
+		if (localStorage.length) {
+			const item = JSON.parse(localStorage.getItem('workout'))
+			newWorkout = [...item, this.state]
+		} else newWorkout = [this.state]
+
+		const id = 'workout'
+		const workout = JSON.stringify(newWorkout)
+		localStorage.setItem(id, workout)
+		this.props.addWorkout(this.state)
 	}
 
 	render() {
 		return (
-			<div className='new-workout-container'>
+			<form 
+				className='new-workout-container'
+				onSubmit={this.saveWorkout}
+			>
 				<h3>CREATE NEW WORKOUT</h3>
 				<div className='workout-name'>
 					<p>Name</p>
@@ -44,13 +62,10 @@ class WorkoutContainer extends Component {
 						value={this.state.value}
 						onChange={this.handleChange}
 					>
-						<option>30 Minutes</option>
-						<option>45 Minutes</option>
-						<option selected='selected'>1 Hour</option>
-						<option>1:15</option>
-						<option>1:30 </option>
-						<option>1:45</option>
-						<option>2:00</option>
+						<option selected='selected'>Workout Length</option>
+						<option>1:00:00</option>
+						<option>1:30:00</option>
+						<option>2:00:00</option>
 					</select>
 				</div>
 				<div className='speed-container'>
@@ -62,20 +77,25 @@ class WorkoutContainer extends Component {
 						onChange={this.handleChange}
 					>
 						<option selected='selected'>Length</option>
-						<option>2:00</option>
 						<option>3:00</option>
-						<option>4:00</option>
 						<option>5:00</option>
 						<option>10:00</option>
 					</select>
 				</div>
 				<div className='new-workout-jog'>
 					<div className='new-jog-sample'>
-						<select className='sample-select'>
+						<select 
+							className='sample-select'
+							name='warmup'
+							value={this.state.value}
+							onChange={this.handleChange}
+						>
 							<option>Choose Sample</option>
+							{this.props.warmupFile.map((file, i) => {
+								return <option key={i}>{file.id}</option>
+							})}
 						</select>
 						<button className='preview-button'>Preview</button>
-						<button className='select-button'>Select</button>
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
@@ -83,7 +103,6 @@ class WorkoutContainer extends Component {
 							<option default>Choose Custom</option>
 						</select>
 						<button className='preview-button'>Preview</button>
-						<button className='select-button'>Select</button>
 					</div>
 				</div>
 				<div className='speed-container'>
@@ -95,8 +114,6 @@ class WorkoutContainer extends Component {
 						onChange={this.handleChange}
 					>
 						<option selected='selected'>Length</option>
-						<option>:30</option>
-						<option>:45</option>
 						<option>1:00</option>
 						<option>1:30</option>
 						<option>2:00</option>
@@ -104,12 +121,18 @@ class WorkoutContainer extends Component {
 				</div>
 				<div className='new-workout-jog'>
 					<div className='new-jog-sample'>
-						<select className='sample-select'>
+						<select 
+							className='sample-select'
+							name='jog'
+							value={this.state.value}
+							onChange={this.handleChange}
+						>
 							<option>Choose Sample</option>
-							{/* {this.props.audioFile.map(file => <option>file</option>)} */}
+							{this.props.jogFile.map((file, i) => {
+								return <option key={i}>{file.id}</option>
+							})}
 						</select>
 						<button className='preview-button'>Preview</button>
-						<button className='select-button'>Select</button>
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
@@ -117,7 +140,6 @@ class WorkoutContainer extends Component {
 							<option default>Choose Custom</option>
 						</select>
 						<button className='preview-button'>Preview</button>
-						<button className='select-button'>Select</button>
 					</div>
 				</div>
 				<div className='speed-container'>
@@ -129,20 +151,25 @@ class WorkoutContainer extends Component {
 						onChange={this.handleChange}
 					>
 						<option selected='selected'>Length</option>
-						<option>:15</option>
 						<option>:30</option>
-						<option>:40</option>
-						<option>:50</option>
+						<option>:45</option>
 						<option>1:00</option>
 					</select>
 				</div>
 				<div className='new-workout-jog'>
 					<div className='new-jog-sample'>
-						<select className='sample-select'>
+						<select 
+							className='sample-select'
+							name='sprint'
+							value={this.state.value}
+							onChange={this.handleChange}
+						>
 							<option>Choose Sample</option>
+							{this.props.sprintFile.map((file, i) => {
+								return <option key={i}>{file.id}</option>
+							})}
 						</select>
 						<button className='preview-button'>Preview</button>
-						<button className='select-button'>Select</button>
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
@@ -150,17 +177,22 @@ class WorkoutContainer extends Component {
 							<option default>Choose Custom</option>
 						</select>
 						<button className='preview-button'>Preview</button>
-						<button className='select-button'>Select</button>
 					</div>
 				</div>
 				<button className='save-workout-button'>Save</button>
-			</div>
+			</form>
 		)
 	}
 }
 
 const mapStateToProps = state => ({
-	audioFile: state.CustomAudioReducer
+	jogFile: state.jogPace,
+	warmupFile: state.warmupPace,
+	sprintFile: state.Sprint
 })
 
-export default connect(mapStateToProps)(WorkoutContainer)
+const mapDispatchToProps = dispatch => ({
+	addWorkout: file => dispatch(storeWorkout(file))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(WorkoutContainer)

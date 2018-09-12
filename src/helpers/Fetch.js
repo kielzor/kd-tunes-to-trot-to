@@ -1,4 +1,3 @@
-import React from 'react'
 import { clientId, secretId } from '../keys'
 
 export const fetchUser = async (code) => {
@@ -17,9 +16,8 @@ export const fetchUser = async (code) => {
 	}
 }
 
-
-export const getComments = async (token) => {
-	const response = await fetch('https://freesound.org/apiv2/sounds/1234/', {
+export const fetchAudio = async (token, code) => {
+	const response = await fetch(`https://freesound.org/apiv2/packs/${code}/sounds/`, {
 		headers: {
 			'Authorization': `Bearer ${token}`
 		}
