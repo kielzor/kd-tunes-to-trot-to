@@ -3,7 +3,7 @@ import './ImportContainer.css'
 import { connect } from 'react-redux'
 import { addUserFile } from '../../actions/index'
 
-class ImportContainer extends Component {
+export class ImportContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -68,7 +68,7 @@ class ImportContainer extends Component {
 	}
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 	addUserAudioFile: file => dispatch(addUserFile(file))
 })
 

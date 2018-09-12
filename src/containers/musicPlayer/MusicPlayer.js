@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
 import { connect } from 'react-redux'
 
-class MusicPlayer extends Component{
+export class MusicPlayer extends Component{
   constructor() {
     super()
     this.state = {
@@ -22,10 +22,10 @@ class MusicPlayer extends Component{
     
     const workout = workoutToPlay[0]
 
-    const jogLength = this.translateLength(workout.jogLength)
-    const warmupLength= this.translateLength(workout.warmupLength)
-    const sprintLength = this.translateLength(workout.sprintLength)
-    const totalLength = this.translateLength(workout.totalLength)
+    const jogLength = this.convertLength(workout.jogLength)
+    const warmupLength= this.convertLength(workout.warmupLength)
+    const sprintLength = this.convertLength(workout.sprintLength)
+    const totalLength = this.convertLength(workout.totalLength)
 
     this.setState ({
       totalLength,
@@ -37,7 +37,7 @@ class MusicPlayer extends Component{
     this.playWorkout(workout.jog)
   }
 
-  translateLength = time => {
+  convertLength = time => {
     let length
 
     if (time === ':30') length = 30000
@@ -79,7 +79,7 @@ class MusicPlayer extends Component{
   }
 }
 
-const mapStateToProps = state => ({
+export const mapStateToProps = state => ({
   workout: state.Workout
 })
 

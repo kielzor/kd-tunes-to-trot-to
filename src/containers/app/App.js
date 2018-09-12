@@ -16,8 +16,7 @@ export class App extends Component {
   constructor() {
     super()
     this.state = {
-      code: '',
-      token: ''
+      code: ''
     }
   }
   
@@ -29,14 +28,12 @@ export class App extends Component {
 
   logOut = () => {
     this.setState({
-      code: '',
-      token: ''
+      code: ''
     })
   }
 
   handleSubmit = async () => {
     const token = await fetchUser(this.state.code)
-    await this.setState({ token })
     const jogAudio = await fetchAudio(token, '14826')
     await this.props.addJog(jogAudio)
     const warmupAudio = await fetchAudio(token, '11118')
@@ -90,7 +87,7 @@ export class App extends Component {
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
   addJog: audioClip => dispatch(storeJog(audioClip)),
   addWarmup: audioClip => dispatch(storeWarmup(audioClip)),
   addSprint: audioClip => dispatch(storeSprint(audioClip)),

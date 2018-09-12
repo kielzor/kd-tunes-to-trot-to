@@ -3,7 +3,7 @@ import './workoutContainer.css'
 import { connect } from 'react-redux'
 import { storeWorkout } from '../../actions/index'
 
-class WorkoutContainer extends Component {
+export class WorkoutContainer extends Component {
 	constructor() {
 		super()
 		this.state = {
@@ -185,13 +185,13 @@ class WorkoutContainer extends Component {
 	}
 }
 
-const mapStateToProps = state => ({
-	jogFile: state.jogPace,
-	warmupFile: state.warmupPace,
-	sprintFile: state.Sprint
+export const mapStateToProps = state => ({
+	jogFile: state.JogPace,
+	warmupFile: state.WarmupPace,
+	sprintFile: state.SprintPace
 })
 
-const mapDispatchToProps = dispatch => ({
+export const mapDispatchToProps = dispatch => ({
 	addWorkout: file => dispatch(storeWorkout(file))
 })
 

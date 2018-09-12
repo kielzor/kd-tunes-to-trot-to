@@ -1,14 +1,14 @@
 import { combineReducers } from 'redux';
-import { CustomAudioReducer } from './customAudioReducer'
-import { AddJogReducer } from './addJogReducer'
-import { AddWarmupReducer } from './addWarmupReducer'
-import { Sprint } from './sprint'
+import { CustomAudio } from './customAudio'
+import { JogPace } from './jogPace'
+import { WarmupPace } from './warmupPace'
+import { SprintPace } from './sprintPace'
 import { Workout } from './workout'
 
 export const rootReducer = combineReducers({
-  CustomAudio: CustomAudioReducer,
-  jogPace: AddJogReducer,
-  warmupPace: AddWarmupReducer,
-  Sprint,
+  CustomAudio: CustomAudio,
+  JogPace,
+  WarmupPace,
+  SprintPace,
   Workout
 })
