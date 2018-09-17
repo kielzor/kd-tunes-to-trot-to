@@ -3,7 +3,7 @@ p {
 
 h3 {
   font-size: 2rem;
-  margin: 1.5rem; }
+  margin: .75rem; }
 
 .new-workout-container {
   width: 100%;
@@ -32,7 +32,9 @@ h3 {
   width: 6rem; }
 
 .preview-button {
-  width: 15%; }
+  width: 15%;
+  height: 1.5rem;
+  border-radius: 10%; }
 
 .save-workout-button {
   background-color: #3C7A89;

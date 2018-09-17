@@ -68,7 +68,7 @@ export class MusicPlayer extends Component{
       id: `https://freesound.org/apiv2/sounds/${this.state.warmup}/download/`,
       currentWorkout: 'Warmup'
     })
-    setTimeout(this.playJog, 20000)
+    setTimeout(this.playJog, 5000)
   }
 
   playJog = () => {
@@ -76,7 +76,7 @@ export class MusicPlayer extends Component{
       id: `https://freesound.org/apiv2/sounds/${this.state.jog}/download/`,
       currentWorkout: 'Jog'
     })
-    setTimeout(this.playSprint, 20000)
+    setTimeout(this.playSprint, 5000)
   }
 
   playSprint = () => {
@@ -84,7 +84,7 @@ export class MusicPlayer extends Component{
       id: `https://freesound.org/apiv2/sounds/${this.state.sprint}/download/`,
       currentWorkout: 'Sprint'
     })
-    setTimeout(this.playJog, 20000)
+    setTimeout(this.playJog, 5000)
   }
 
   render() {
@@ -98,6 +98,7 @@ export class MusicPlayer extends Component{
           url={this.state.id} 
           playing 
           controls
+          height='100px'
         />
         <select
           className='workout-selector'

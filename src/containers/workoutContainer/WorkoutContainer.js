@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './workoutContainer.css'
 import { connect } from 'react-redux'
 import { storeWorkout } from '../../actions/index'
+import ReactPlayer from 'react-player'
 
 export class WorkoutContainer extends Component {
 	constructor() {
@@ -15,6 +16,7 @@ export class WorkoutContainer extends Component {
 			jog: {},
 			sprintLength: 0,
 			sprint: {},
+			playing: ''
 		}
 	}
 
@@ -36,15 +38,44 @@ export class WorkoutContainer extends Component {
 	saveWorkout = (e) => {
 		e.preventDefault()
 		let newWorkout
+
 		if (localStorage.length) {
 			const item = JSON.parse(localStorage.getItem('workout'))
 			newWorkout = [...item, this.state]
-		} else newWorkout = [this.state]
+		} else {
+			newWorkout = [this.state]
+		}
 
 		const id = 'workout'
 		const workout = JSON.stringify(newWorkout)
 		localStorage.setItem(id, workout)
 		this.props.addWorkout(this.state)
+		this.resetFields()
+	}
+
+	resetFields = () => {
+		this.setState ({
+			name: '',
+			totalLength: 0,
+			warmupLength: 0,
+			warmup: {},
+			jogLength: 0,
+			jog: {},
+			sprintLength: 0,
+			sprint: {}
+		})
+	}
+
+	playPreview = (type) => {
+		let preview = ''
+
+		if (type === 'warmup') preview = this.state.warmup
+		if (type === 'jog') preview = this.state.jog
+		if (type === 'sprint') preview = this.state.sprint
+
+		this.setState ({
+			playing: `https://freesound.org/apiv2/sounds/${preview}/download/`
+		})
 	}
 
 	render() {
@@ -53,20 +84,27 @@ export class WorkoutContainer extends Component {
 				className='new-workout-container'
 				onSubmit={this.saveWorkout}
 			>
+				<ReactPlayer 
+          className='player'
+					url={this.state.playing}
+					height='50px'
+          playing 
+          controls
+        />
 				<h3>CREATE NEW WORKOUT</h3>
 				<div className='workout-name'>
 					<p>Name</p>
 					<input 
 						className='workout-inputs'
 						name='name' 
-						value={this.state.value} 
+						value={this.state.name} 
 						onChange={this.handleChange}
 					/>
 					<p>Workout Length</p>	
 					<select 
 						className='workout-inputs'
 						name='totalLength'
-						value={this.state.value}
+						value={this.state.totalLength}
 						onChange={this.handleChange}
 					>
 						<option selected='selected'>Workout Length</option>
@@ -77,24 +115,13 @@ export class WorkoutContainer extends Component {
 				</div>
 				<div className='speed-container'>
 					<h3>Set Warmup/ Cooldown Song</h3>
-					<select 
-						className='sample-duration'
-						name='warmupLength'
-						value={this.state.value}
-						onChange={this.handleChange}
-					>
-						<option selected='selected'>Length</option>
-						<option>3:00</option>
-						<option>5:00</option>
-						<option>10:00</option>
-					</select>
 				</div>
 				<div className='new-workout-jog'>
 					<div className='new-jog-sample'>
 						<select 
 							className='sample-select'
 							name='warmup'
-							value={this.state.value}
+							value={this.state.warmup}
 							onChange={this.handleChange}
 						>
 							<option>Choose Sample</option>
@@ -102,14 +129,13 @@ export class WorkoutContainer extends Component {
 								return <option key={i}>{file.id}</option>
 							})}
 						</select>
-						<button className='preview-button'>Preview</button>
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
 						<select 
 							className='sample-select'
 							name='warmup'
-							value={this.state.value}
+							value={this.state.warmup}
 							onChange={this.handleChange}	
 						>
 							<option default>Choose Custom</option>
@@ -117,29 +143,32 @@ export class WorkoutContainer extends Component {
 								return file.speed === 'Warmup/ Cooldown'
 							}).map(warmup => <option>{warmup.name}</option>)}
 						</select>
-						<button className='preview-button'>Preview</button>
+						<select 
+							className='sample-duration'
+							name='warmupLength'
+							value={this.state.warmupLength}
+							onChange={this.handleChange}
+						>
+							<option selected='selected'>Length</option>
+							<option>3:00</option>
+							<option>5:00</option>
+							<option>10:00</option>
+						</select>
+						<button 
+							className='preview-button warmup-preview'
+							onClick={() => this.playPreview('warmup')}	
+						>Preview</button>
 					</div>
 				</div>
 				<div className='speed-container'>
 					<h3>Set Jog Song</h3>
-					<select 
-						className='sample-duration'
-						name='jogLength'
-						value={this.state.value}
-						onChange={this.handleChange}
-					>
-						<option selected='selected'>Length</option>
-						<option>1:00</option>
-						<option>1:30</option>
-						<option>2:00</option>
-					</select>
 				</div>
 				<div className='new-workout-jog'>
 					<div className='new-jog-sample'>
 						<select 
 							className='sample-select'
 							name='jog'
-							value={this.state.value}
+							value={this.state.jog}
 							onChange={this.handleChange}
 						>
 							<option>Choose Sample</option>
@@ -147,14 +176,13 @@ export class WorkoutContainer extends Component {
 								return <option key={i}>{file.id}</option>
 							})}
 						</select>
-						<button className='preview-button'>Preview</button>
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
 						<select 
 							className='sample-select'
 							name='jog'
-							value={this.state.value}
+							value={this.state.jog}
 							onChange={this.handleChange}	
 						>
 							<option default>Choose Custom</option>
@@ -162,29 +190,32 @@ export class WorkoutContainer extends Component {
 								return file.speed === 'Jog'
 							}).map(warmup => <option>{warmup.name}</option>)}
 						</select>
-						<button className='preview-button'>Preview</button>
 					</div>
-				</div>
-				<div className='speed-container'>
-					<h3>Set Sprint Song</h3>
 					<select 
 						className='sample-duration'
-						name='sprintLength'
-						value={this.state.value}
+						name='jogLength'
+						value={this.state.jogLength}
 						onChange={this.handleChange}
 					>
 						<option selected='selected'>Length</option>
-						<option>:30</option>
-						<option>:45</option>
 						<option>1:00</option>
+						<option>1:30</option>
+						<option>2:00</option>
 					</select>
+						<button 
+							className='preview-button jog-preview'
+							onClick={() => this.playPreview('jog')}	
+						>Preview</button>
+				</div>
+				<div className='speed-container'>
+					<h3>Set Sprint Song</h3>
 				</div>
 				<div className='new-workout-jog'>
 					<div className='new-jog-sample'>
 						<select 
 							className='sample-select'
 							name='sprint'
-							value={this.state.value}
+							value={this.state.sprint}
 							onChange={this.handleChange}
 						>
 							<option>Choose Sample</option>
@@ -192,14 +223,13 @@ export class WorkoutContainer extends Component {
 								return <option key={i}>{file.id}</option>
 							})}
 						</select>
-						<button className='preview-button'>Preview</button>
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
 						<select 
 							className='sample-select'
 							name='sprint'
-							value={this.state.value}
+							value={this.state.sprint}
 							onChange={this.handleChange}	
 						>
 							<option default>Choose Custom</option>
@@ -207,8 +237,22 @@ export class WorkoutContainer extends Component {
 								return file.speed === 'Sprint'
 							}).map(warmup => <option>{warmup.name}</option>)}
 						</select>
-						<button className='preview-button'>Preview</button>
 					</div>
+					<select 
+						className='sample-duration'
+						name='sprintLength'
+						value={this.state.sprintLength}
+						onChange={this.handleChange}
+						>
+						<option selected='selected'>Length</option>
+						<option>:30</option>
+						<option>:45</option>
+						<option>1:00</option>
+					</select>
+					<button 
+						className='preview-button sprint-preview'
+						onClick={() => this.playPreview('sprint')}		
+					>Preview</button>
 				</div>
 				<button className='save-workout-button'>Save</button>
 			</form>

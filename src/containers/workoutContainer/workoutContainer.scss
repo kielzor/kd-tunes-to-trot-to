@@ -4,7 +4,7 @@ p {
 
 h3 {
   font-size: 2rem;
-  margin: 1.5rem;
+  margin: .75rem;
 }
 
 .new-workout-container {
@@ -41,6 +41,8 @@ h3 {
 
 .preview-button {
   width: 15%;
+  height: 1.5rem;
+  border-radius: 10%;
 }
 
 .save-workout-button {
