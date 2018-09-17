@@ -21,6 +21,13 @@ export class WorkoutContainer extends Component {
 	handleChange = (e) => {
 		const { name, value } = e.target
 
+		const custom = this.props.customFile.filter(file => value === file.name)
+
+		if (custom.length) {
+			this.setState ({ [name]: custom[0].file })
+			return
+		}
+
 		this.setState ({
 			[name]: value,
 		})
@@ -99,8 +106,16 @@ export class WorkoutContainer extends Component {
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
-						<select className='sample-select'>
+						<select 
+							className='sample-select'
+							name='warmup'
+							value={this.state.value}
+							onChange={this.handleChange}	
+						>
 							<option default>Choose Custom</option>
+							{this.props.customFile.filter(file => {
+								return file.speed === 'Warmup/ Cooldown'
+							}).map(warmup => <option>{warmup.name}</option>)}
 						</select>
 						<button className='preview-button'>Preview</button>
 					</div>
@@ -136,8 +151,16 @@ export class WorkoutContainer extends Component {
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
-						<select className='sample-select'>
+						<select 
+							className='sample-select'
+							name='jog'
+							value={this.state.value}
+							onChange={this.handleChange}	
+						>
 							<option default>Choose Custom</option>
+							{this.props.customFile.filter(file => {
+								return file.speed === 'Jog'
+							}).map(warmup => <option>{warmup.name}</option>)}
 						</select>
 						<button className='preview-button'>Preview</button>
 					</div>
@@ -173,8 +196,16 @@ export class WorkoutContainer extends Component {
 					</div>
 					<p>OR</p>
 					<div className='new-jog-custom'>
-						<select className='sample-select'>
+						<select 
+							className='sample-select'
+							name='sprint'
+							value={this.state.value}
+							onChange={this.handleChange}	
+						>
 							<option default>Choose Custom</option>
+							{this.props.customFile.filter(file => {
+								return file.speed === 'Sprint'
+							}).map(warmup => <option>{warmup.name}</option>)}
 						</select>
 						<button className='preview-button'>Preview</button>
 					</div>
@@ -188,7 +219,8 @@ export class WorkoutContainer extends Component {
 export const mapStateToProps = state => ({
 	jogFile: state.JogPace,
 	warmupFile: state.WarmupPace,
-	sprintFile: state.SprintPace
+	sprintFile: state.SprintPace,
+	customFile: state.CustomAudio
 })
 
 export const mapDispatchToProps = dispatch => ({

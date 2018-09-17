@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import ReactPlayer from 'react-player'
 import { connect } from 'react-redux'
+import './MusicPlayer.css'
 
 export class MusicPlayer extends Component{
   constructor() {
@@ -10,12 +11,16 @@ export class MusicPlayer extends Component{
       warmupLength: 0,
       jogLength: 0,
       sprintLength: 0,
-      totalLength: 0
+      totalLength: 0,
+      currentWorkout: 'Choose your workout!!'
     }
   }
 
   handleChange = e => {
-    const { value } = e.target    
+    const { value } = e.target
+    
+    if ( value === 'Choose Workout') return
+
     const workoutToPlay = this.props.workout.filter(workout => {
       return workout.name === value
     })
@@ -31,10 +36,13 @@ export class MusicPlayer extends Component{
       totalLength,
       warmupLength,
       jogLength,
-      sprintLength
+      sprintLength,
+      jog: workout.jog,
+      warmup: workout.warmup,
+      sprint: workout.sprint
     })
 
-    this.playWorkout(workout.jog)
+    this.playWarmup(workout)
   }
 
   convertLength = time => {
@@ -55,16 +63,44 @@ export class MusicPlayer extends Component{
     return length
   }
 
-  playWorkout = playlist => {
+  playWarmup = () => {
     this.setState ({
-      id: `https://freesound.org/apiv2/sounds/${playlist}/download/`
+      id: `https://freesound.org/apiv2/sounds/${this.state.warmup}/download/`,
+      currentWorkout: 'Warmup'
     })
+    setTimeout(this.playJog, 20000)
+  }
+
+  playJog = () => {
+    this.setState ({
+      id: `https://freesound.org/apiv2/sounds/${this.state.jog}/download/`,
+      currentWorkout: 'Jog'
+    })
+    setTimeout(this.playSprint, 20000)
+  }
+
+  playSprint = () => {
+    this.setState ({
+      id: `https://freesound.org/apiv2/sounds/${this.state.sprint}/download/`,
+      currentWorkout: 'Sprint'
+    })
+    setTimeout(this.playJog, 20000)
   }
 
   render() {
     return (
-      <div>
+      <div className='player-parent'>
+      <h1>
+        {this.state.currentWorkout}
+      </h1>
+        <ReactPlayer 
+          className='player'
+          url={this.state.id} 
+          playing 
+          controls
+        />
         <select
+          className='workout-selector'
           onChange={this.handleChange}
           value={this.state.value}
         >
@@ -73,7 +109,6 @@ export class MusicPlayer extends Component{
             return <option>{file.name}</option>
           })}
         </select>
-        <ReactPlayer url={this.state.id} playing controls/>
       </div>
     )
   }

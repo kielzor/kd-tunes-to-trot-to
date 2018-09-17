@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './DesktopDisplayContainer.css'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class DesktopDisplayContainer extends Component {
 	render() {
@@ -11,23 +12,27 @@ class DesktopDisplayContainer extends Component {
 						<button className='desktop-container-button'
 							onClick={this.props.handleDesktopClick}>CREATE NEW WORKOUT</button>
 					</Link>
+					<Link to='/music-player'>
+						<button 
+							className='music-player-route'
+							onClick={this.props.handleDesktopClick}>MusicPlayer</button>
+					</Link>
 					<Link to='/import'>
 						<button className='desktop-container-button'
 							onClick={this.props.handleDesktopClick}>IMPORT TRACKS</button>
 					</Link>
-					<Link to='/new-song'>
+					{/* <Link to='/new-song'>
 						<button className='desktop-container-button'
 							onClick={this.props.handleDesktopClick}>BUILD NEW SONG</button>
-					</Link>
+					</Link> */}
 				</div>
-				<Link to='/music-player'>
-					<button 
-						className='music-player-route'
-						onClick={this.props.handleDesktopClick}>MusicPlayer</button>
-				</Link>
 			</div>
 		)
 	}
+}
+
+DesktopDisplayContainer.propTypes = {
+	handleDesktopClick: PropTypes.func
 }
 
 export default DesktopDisplayContainer

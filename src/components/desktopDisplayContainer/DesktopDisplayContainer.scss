@@ -9,12 +9,27 @@
 
 .desktop-button-parent {
   display: flex;
-  width: 70%;
+  width: 50%;
+  align-items: center;
   justify-content: space-between;
-  margin-bottom: 5rem;
+  margin: 5rem auto;
 }
 
 .desktop-container-button {
+  background-color: #3C7A89;
   height: 12rem;
   width: 12rem;
+  border-radius: 10%;
+  color: white;
+}
+
+.music-player-route {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 10%;
+  background-color: #9FA2B2;
+}
+
+button, select {
+  cursor: pointer;
 }

@@ -1,6 +1,7 @@
 import React, { Component} from 'react'
 import './header.css'
 import { NavLink } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
 class Header extends Component {
 	render() {
@@ -11,7 +12,9 @@ class Header extends Component {
 				<h1 className='header'>TUNES TO TROT TO</h1>
 				{this.props.loggedStatus && <div className='header-buttons'>
 				<NavLink to='/'>
-					<button onClick={() => this.props.logOut()}>Log Out</button>
+					<button 
+						className='logout-button'
+						onClick={() => this.props.logOut()}>Log Out</button>
 				</NavLink>
 				</div>}
 				{!this.props.loggedStatus && <div className='header-spacing'></div>}
@@ -19,4 +22,10 @@ class Header extends Component {
 		)
 	}
 }
+
+Header.propTypes = {
+	loggedStatus: PropTypes.string,
+	logOut: PropTypes.func
+}
+
 export default Header

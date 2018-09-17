@@ -1,0 +1,9 @@
+.workout-selector {
+  width: 40rem;
+  margin-top: 2rem; }
+
+.player-parent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; }

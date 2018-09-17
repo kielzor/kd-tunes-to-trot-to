@@ -71,17 +71,17 @@ export class App extends Component {
         }} />
         <Route exact path='/' render={() => {
           return (
-          <div>
-            {!this.state.code && 
-            <a href={`https://freesound.org/apiv2/oauth2/authorize/?client_id=${clientId}&response_type=code`}>Login with freesound</a>}
-            {this.state.code && 
-            <Link to='/desktop-controller'>
-              <button 
-                className='get-started-button'
-                onClick={this.handleSubmit}>Get Started!</button>
-            </Link>}
-          </div>
-          )}} />
+        <div>
+          {!this.state.code && 
+          <a href={`https://freesound.org/apiv2/oauth2/authorize/?client_id=${clientId}&response_type=code`}>Login with freesound</a>}
+          {this.state.code && 
+          <Link to='/desktop-controller'>
+            <button 
+              className='get-started-button'
+              onClick={this.handleSubmit}>Get Started!</button>
+          </Link>}
+        </div>
+        )}} />
       </div>
     );
   }
