@@ -4,7 +4,7 @@
 
 ## This application was made with React, Redux, Router, CSS, and Javascript. It was tested with Enzyme and Jest.
 
-### To run this application, run npm install and npm start in the terminal. It should open on localhost3000.
+### To run this application, clone the repo and run npm install and npm start in the terminal. It should open on localhost3000.
 
 <img width="1440" alt="screen shot 2018-09-18 at 12 59 15 pm" src="https://user-images.githubusercontent.com/38475249/45711428-c448a480-bb46-11e8-89f7-25a833763799.png">
 
