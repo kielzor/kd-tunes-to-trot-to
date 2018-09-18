@@ -4,7 +4,6 @@
 
 ## This application was made with React, Redux, Router, CSS, and Javascript. It was testing using Enzyme and Jest.
 
-
 <img width="1440" alt="screen shot 2018-09-18 at 12 59 15 pm" src="https://user-images.githubusercontent.com/38475249/45711428-c448a480-bb46-11e8-89f7-25a833763799.png">
 
-    
+<img width="1440" alt="screen shot 2018-09-18 at 1 30 10 pm" src="https://user-images.githubusercontent.com/38475249/45711500-007c0500-bb47-11e8-9633-514c26ab8bd4.png">    
