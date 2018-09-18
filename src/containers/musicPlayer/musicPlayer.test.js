@@ -66,6 +66,7 @@ describe('MusicPlayer', () => {
 		it('should return a jogFile array with objects in it', () => {
 			const mockState = {
 				Workout: [{ name: 'test' }],
+				jogPace: [{ id: 898898 }]
 			}
 
 			const expected = {

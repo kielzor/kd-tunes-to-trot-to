@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import { clientId } from '../../keys';
 import { storeJog, storeWarmup, storeSprint, populateWorkout } from '../../actions/index';
 import { fetchUser, fetchAudio } from '../../helpers/Fetch';

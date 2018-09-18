@@ -6,7 +6,7 @@ import { SprintPace } from './sprintPace'
 import { Workout } from './workout'
 
 export const rootReducer = combineReducers({
-	CustomAudio: CustomAudio,
+	CustomAudio,
 	JogPace,
 	WarmupPace,
 	SprintPace,
