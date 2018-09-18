@@ -66,7 +66,8 @@ export class WorkoutContainer extends Component {
 		})
 	}
 
-	playPreview = (type) => {
+	playPreview = (type, e) => {
+		e.preventDefault()
 		let preview = ''
 
 		if (type === 'warmup') preview = this.state.warmup
@@ -156,7 +157,7 @@ export class WorkoutContainer extends Component {
 						</select>
 						<button 
 							className='preview-button warmup-preview'
-							onClick={() => this.playPreview('warmup')}	
+							onClick={(e) => this.playPreview('warmup', e)}	
 						>Preview</button>
 					</div>
 				</div>
@@ -204,7 +205,7 @@ export class WorkoutContainer extends Component {
 					</select>
 						<button 
 							className='preview-button jog-preview'
-							onClick={() => this.playPreview('jog')}	
+							onClick={(e) => this.playPreview('jog', e)}	
 						>Preview</button>
 				</div>
 				<div className='speed-container'>
@@ -251,7 +252,7 @@ export class WorkoutContainer extends Component {
 					</select>
 					<button 
 						className='preview-button sprint-preview'
-						onClick={() => this.playPreview('sprint')}		
+						onClick={(e) => this.playPreview('sprint', e)}		
 					>Preview</button>
 				</div>
 				<button className='save-workout-button'>Save</button>

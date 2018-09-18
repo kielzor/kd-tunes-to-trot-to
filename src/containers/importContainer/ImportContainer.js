@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
-import './ImportContainer.css'
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
 import { addUserFile } from '../../actions/index'
+import './ImportContainer.css'
 
 export class ImportContainer extends Component {
 	constructor() {
@@ -23,7 +25,6 @@ export class ImportContainer extends Component {
 
 	handleSubmit = (e) => {
 		e.preventDefault()
-		console.log(this.state)
 		this.props.addUserAudioFile(this.state)
 	}
 
@@ -66,6 +67,10 @@ export class ImportContainer extends Component {
 			</div>
 		)
 	}
+}
+
+ImportContainer.propTypes = {
+	addUserAudioFile: PropTypes.func
 }
 
 export const mapDispatchToProps = dispatch => ({

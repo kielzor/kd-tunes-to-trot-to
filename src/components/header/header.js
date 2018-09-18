@@ -8,14 +8,18 @@ class Header extends Component {
 		return (
 			<div className='header-container'>
 				{!this.props.loggedStatus && <div className='header-spacing'></div>}
-				{this.props.loggedStatus && <h5 className='welcome-msg'>Welcome: [ user ]</h5>}
+				{this.props.loggedStatus && <h5 className='welcome-msg'>Welcome!</h5>}
 				<h1 className='header'>TUNES TO TROT TO</h1>
 				{this.props.loggedStatus && <div className='header-buttons'>
-				<NavLink to='/'>
-					<button 
-						className='logout-button'
-						onClick={() => this.props.logOut()}>Log Out</button>
-				</NavLink>
+					<NavLink 
+						className='logout-link'
+						onClick={() => this.props.logOut()}
+						to='/'
+					>
+						<button 
+							name='logout-button'
+							className='logout-button'>Log Out</button>
+					</NavLink>
 				</div>}
 				{!this.props.loggedStatus && <div className='header-spacing'></div>}
 			</div>

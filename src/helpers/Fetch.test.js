@@ -22,21 +22,4 @@ describe('fetchUser', () => {
 
     expect(window.fetch).toHaveBeenCalledWith("https://freesound.org/apiv2/oauth2/access_token?client_id=J2B30ErhjcsZIM53KgMu&client_secret=pGcesKXEVXgMoImE2oaTxbbAL2kZppVTRf5DIBTE&grant_type=authorization_code&code=undefined", expectedBody)
   })
-
-  // it('returns a code if the status is okay', async () => {
-  //   const mockCode = '12398948349'
-
-  //   await expect(fetchUser(mockCode)).resolves.toEqual('')
-  // })
-  
-  // it('throws an error if the fetch call fails', async () => {
-  //   window.fetch = await jest.fn().mockImplementation(() => Promise.reject(
-  //     new Error('failed')
-  //   ))
-
-  //   await fetchUser()
-
-  //   expect(window.fetch).toEqual('')
-  // })
-
 })

@@ -1,16 +1,17 @@
 import React, { Component } from 'react'
-import './App.css';
-import { clientId } from '../../keys'
-import Header from '../../components/header/header'
-import DesktopDisplayContainer from '../../components/desktopDisplayContainer/DesktopDisplayContainer.js'
-import { Route, withRouter, Link } from 'react-router-dom';
-import ImportContainer from '../importContainer/ImportContainer'
-import { NewSongContainer } from '../../components/newSongContainer/NewSongContainer'
-import WorkoutContainer from '../workoutContainer/WorkoutContainer'
-import MusicPlayer from '../../containers/musicPlayer/MusicPlayer'
-import { fetchUser, fetchAudio } from '../../helpers/Fetch'
+import { Route, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+
+import { clientId } from '../../keys'
 import { storeJog, storeWarmup, storeSprint, populateWorkout } from '../../actions/index'
+import { fetchUser, fetchAudio } from '../../helpers/Fetch'
+import MusicPlayer from '../../containers/musicPlayer/MusicPlayer'
+import WorkoutContainer from '../workoutContainer/WorkoutContainer'
+import ImportContainer from '../importContainer/ImportContainer'
+import DesktopDisplayContainer from '../../components/desktopDisplayContainer/DesktopDisplayContainer.js'
+import Header from '../../components/header/header'
+import './App.css';
 
 export class App extends Component {
   constructor() {
@@ -60,9 +61,6 @@ export class App extends Component {
         <Route exact path='/import' render={() => {
           return <ImportContainer />
         }} />
-        <Route exact path='/new-song' render={() => {
-          return <NewSongContainer />
-        }} />
         <Route exact path='/workout' render={() => {
           return <WorkoutContainer />
         }} />
@@ -75,16 +73,27 @@ export class App extends Component {
           {!this.state.code && 
           <a href={`https://freesound.org/apiv2/oauth2/authorize/?client_id=${clientId}&response_type=code`}>Login with freesound</a>}
           {this.state.code && 
-          <Link to='/desktop-controller'>
+          <NavLink 
+            to='/desktop-controller'
+            className='get-started'
+            onClick={this.handleSubmit}
+          >
             <button 
               className='get-started-button'
-              onClick={this.handleSubmit}>Get Started!</button>
-          </Link>}
+              >Get Started!</button>
+          </NavLink>}
         </div>
         )}} />
       </div>
     );
   }
+}
+
+App.propTypes = {
+  addJog: PropTypes.func,
+  addWarmup: PropTypes.func,
+  addSprint: PropTypes.func,
+  populateWorkout: PropTypes.func
 }
 
 export const mapDispatchToProps = dispatch => ({

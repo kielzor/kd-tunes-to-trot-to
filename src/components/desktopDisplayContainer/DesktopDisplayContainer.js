@@ -8,23 +8,27 @@ class DesktopDisplayContainer extends Component {
 		return (
 			<div className='desktop-display'>
 				<div className='desktop-button-parent'>
-					<Link to='/workout'>
-						<button className='desktop-container-button'
-							onClick={this.props.handleDesktopClick}>CREATE NEW WORKOUT</button>
+					<Link 
+						className='desktop-link-workout'
+						to='/workout'
+						onClick={this.props.handleDesktopClick}
+					>
+						<button className='desktop-container-button'>CREATE NEW WORKOUT</button>
 					</Link>
-					<Link to='/music-player'>
-						<button 
-							className='music-player-route'
-							onClick={this.props.handleDesktopClick}>MusicPlayer</button>
+					<Link 
+						className='desktop-link-player'
+						to='/music-player'
+						onClick={this.props.handleDesktopClick}
+					>
+						<button className='music-player-route'>MusicPlayer</button>
 					</Link>
-					<Link to='/import'>
-						<button className='desktop-container-button'
-							onClick={this.props.handleDesktopClick}>IMPORT TRACKS</button>
+					<Link 
+						className='desktop-link-import'
+						to='/import'
+						onClick={this.props.handleDesktopClick}
+					>
+						<button className='desktop-container-button'>IMPORT TRACKS</button>
 					</Link>
-					{/* <Link to='/new-song'>
-						<button className='desktop-container-button'
-							onClick={this.props.handleDesktopClick}>BUILD NEW SONG</button>
-					</Link> */}
 				</div>
 			</div>
 		)

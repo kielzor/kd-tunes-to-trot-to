@@ -21,7 +21,6 @@ describe('WorkoutContainer', () => {
         addWorkout={mockAddWorkout}
         saveWorkout={mockSaveWorkout}
       />)
-
   })
 
   it('should match the snapshot', () => {
@@ -61,14 +60,14 @@ describe('WorkoutContainer', () => {
     expect(mockAddWorkout).toHaveBeenCalled()
   })
 
-  it('should map over the customFile and return options', () => {
+  it('should map over the props and return state correctly', () => {
     const mockEvent = { target: { name: 'jog', value: { speed: 'Jog', name: 'kiel' } }}    
     wrapper = shallow (
       <WorkoutContainer 
-        warmupFile={[]}
+        warmupFile={[{ speed: 'Warmup', name: 'chillin'}]}
         customFile={[{ speed: 'Jog', name: 'kiel' }]}
-        jogFile={[]}
-        sprintFile={[]}
+        jogFile={[{ speed: 'jog', name: 'jogger' }]}
+        sprintFile={[{ speed: 'Sprint', name: 'Dave'}]}
         addWorkout={mockAddWorkout}
         saveWorkout={mockSaveWorkout}
       />)
@@ -81,7 +80,7 @@ describe('WorkoutContainer', () => {
   it('should call playPreview on click and set the state correctly', () => {
     const expected = "https://freesound.org/apiv2/sounds/[object Object]/download/"
 
-    wrapper.find('.sprint-preview').simulate('click')
+    wrapper.find('.sprint-preview').simulate('click', { preventDefault: jest.fn() })
 
     expect(wrapper.state('playing')).toEqual(expected)
   })
@@ -89,7 +88,7 @@ describe('WorkoutContainer', () => {
   it('should call playPreview on click and set the state correctly', () => {
     const expected = "https://freesound.org/apiv2/sounds/[object Object]/download/"
     
-    wrapper.find('.jog-preview').simulate('click')
+    wrapper.find('.jog-preview').simulate('click', { preventDefault: jest.fn() })
 
     expect(wrapper.state('playing')).toEqual(expected)
   })
@@ -97,7 +96,7 @@ describe('WorkoutContainer', () => {
   it('should call playPreview on click and set the state correctly', () => {
     const expected = "https://freesound.org/apiv2/sounds/[object Object]/download/"
     
-    wrapper.find('.warmup-preview').simulate('click')
+    wrapper.find('.warmup-preview').simulate('click', { preventDefault: jest.fn() })
 
     expect(wrapper.state('playing')).toEqual(expected)
   })

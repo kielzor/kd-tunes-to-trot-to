@@ -3,7 +3,12 @@
 exports[`App should match the snapshot 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__unrendered__): <App
+    addJog={[Function]}
+    addSprint={[Function]}
+    addWarmup={[Function]}
+    populateWorkout={[Function]}
+/>,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -31,11 +36,6 @@ ShallowWrapper {
         <Route
           exact={true}
           path="/import"
-          render={[Function]}
-/>,
-        <Route
-          exact={true}
-          path="/new-song"
           render={[Function]}
 />,
         <Route
@@ -91,19 +91,6 @@ ShallowWrapper {
         "props": Object {
           "exact": true,
           "path": "/import",
-          "render": [Function],
-        },
-        "ref": null,
-        "rendered": null,
-        "type": [Function],
-      },
-      Object {
-        "instance": null,
-        "key": undefined,
-        "nodeType": "class",
-        "props": Object {
-          "exact": true,
-          "path": "/new-song",
           "render": [Function],
         },
         "ref": null,
@@ -176,11 +163,6 @@ ShallowWrapper {
 />,
           <Route
             exact={true}
-            path="/new-song"
-            render={[Function]}
-/>,
-          <Route
-            exact={true}
             path="/workout"
             render={[Function]}
 />,
@@ -232,19 +214,6 @@ ShallowWrapper {
           "props": Object {
             "exact": true,
             "path": "/import",
-            "render": [Function],
-          },
-          "ref": null,
-          "rendered": null,
-          "type": [Function],
-        },
-        Object {
-          "instance": null,
-          "key": undefined,
-          "nodeType": "class",
-          "props": Object {
-            "exact": true,
-            "path": "/new-song",
             "render": [Function],
           },
           "ref": null,

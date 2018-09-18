@@ -42,7 +42,7 @@ export class MusicPlayer extends Component{
       sprint: workout.sprint
     })
 
-    this.playWarmup(workout)
+    this.playWorkout()
   }
 
   convertLength = time => {
@@ -63,28 +63,47 @@ export class MusicPlayer extends Component{
     return length
   }
 
+  playJog = () => {
+    if (this.state.currentWorkout === 'Cooldown') return
+
+    this.setState ({
+      id: `https://freesound.org/apiv2/sounds/${this.state.jog}/download/`,
+      currentWorkout: 'Jog'
+    })
+    setTimeout(this.playSprint, this.state.jogLength)
+  }
+
+  playSprint = () => {
+    if (this.state.currentWorkout === 'Cooldown') return
+
+    this.setState ({
+      id: `https://freesound.org/apiv2/sounds/${this.state.sprint}/download/`,
+      currentWorkout: 'Sprint'
+    })
+    setTimeout(this.playJog, this.state.sprintLength)
+  }
+
   playWarmup = () => {
     this.setState ({
       id: `https://freesound.org/apiv2/sounds/${this.state.warmup}/download/`,
       currentWorkout: 'Warmup'
     })
-    setTimeout(this.playJog, 5000)
   }
 
-  playJog = () => {
+  playCooldown = () => {
     this.setState ({
-      id: `https://freesound.org/apiv2/sounds/${this.state.jog}/download/`,
-      currentWorkout: 'Jog'
+      id: `https://freesound.org/apiv2/sounds/${this.state.warmup}/download/`,
+      currentWorkout: 'Cooldown'
     })
-    setTimeout(this.playSprint, 5000)
+    setTimeout(() => {
+      this.setState({ id: '' })
+    }, this.state.warmupLength)
   }
 
-  playSprint = () => {
-    this.setState ({
-      id: `https://freesound.org/apiv2/sounds/${this.state.sprint}/download/`,
-      currentWorkout: 'Sprint'
-    })
-    setTimeout(this.playJog, 5000)
+  playWorkout = () => {
+    setTimeout(this.playWarmup, 2000)
+    setTimeout(this.playJog, this.state.warmupLength)
+    setTimeout(this.playCooldown, this.state.totalLength)
   }
 
   render() {
@@ -99,6 +118,7 @@ export class MusicPlayer extends Component{
           playing 
           controls
           height='100px'
+          loop
         />
         <select
           className='workout-selector'

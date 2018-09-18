@@ -1,0 +1,605 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ImportContainer should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <ImportContainer
+    addUserAudioFile={[Function]}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Import Audio
+</h1>,
+        <form
+          className="import-audio"
+          onSubmit={[Function]}
+>
+          <input
+                    className="import-input"
+                    name="name"
+                    onChange={[Function]}
+                    placeholder="Name"
+                    value={undefined}
+          />
+          <select
+                    className="import-input"
+                    name="speed"
+                    onChange={[Function]}
+                    value={undefined}
+          >
+                    <option
+                              default={true}
+                    >
+                              Speed
+                    </option>
+                    <option>
+                              Warmup/ Cooldown
+                    </option>
+                    <option>
+                              Jog
+                    </option>
+                    <option>
+                              Sprint
+                    </option>
+          </select>
+          <div>
+                    <input
+                              accept="audio/*"
+                              className="import-file-input"
+                              name="file"
+                              onChange={[Function]}
+                              placholder="File"
+                              type="file"
+                              value={undefined}
+                    />
+                    <button
+                              className="import-save-button"
+                    >
+                              Save
+                    </button>
+          </div>
+</form>,
+      ],
+      "className": "import-container",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Import Audio",
+        },
+        "ref": null,
+        "rendered": "Import Audio",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <input
+              className="import-input"
+              name="name"
+              onChange={[Function]}
+              placeholder="Name"
+              value={undefined}
+/>,
+            <select
+              className="import-input"
+              name="speed"
+              onChange={[Function]}
+              value={undefined}
+>
+              <option
+                            default={true}
+              >
+                            Speed
+              </option>
+              <option>
+                            Warmup/ Cooldown
+              </option>
+              <option>
+                            Jog
+              </option>
+              <option>
+                            Sprint
+              </option>
+</select>,
+            <div>
+              <input
+                            accept="audio/*"
+                            className="import-file-input"
+                            name="file"
+                            onChange={[Function]}
+                            placholder="File"
+                            type="file"
+                            value={undefined}
+              />
+              <button
+                            className="import-save-button"
+              >
+                            Save
+              </button>
+</div>,
+          ],
+          "className": "import-audio",
+          "onSubmit": [Function],
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "className": "import-input",
+              "name": "name",
+              "onChange": [Function],
+              "placeholder": "Name",
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": null,
+            "type": "input",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <option
+                  default={true}
+>
+                  Speed
+</option>,
+                <option>
+                  Warmup/ Cooldown
+</option>,
+                <option>
+                  Jog
+</option>,
+                <option>
+                  Sprint
+</option>,
+              ],
+              "className": "import-input",
+              "name": "speed",
+              "onChange": [Function],
+              "value": undefined,
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Speed",
+                  "default": true,
+                },
+                "ref": null,
+                "rendered": "Speed",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Warmup/ Cooldown",
+                },
+                "ref": null,
+                "rendered": "Warmup/ Cooldown",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Jog",
+                },
+                "ref": null,
+                "rendered": "Jog",
+                "type": "option",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Sprint",
+                },
+                "ref": null,
+                "rendered": "Sprint",
+                "type": "option",
+              },
+            ],
+            "type": "select",
+          },
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": Array [
+                <input
+                  accept="audio/*"
+                  className="import-file-input"
+                  name="file"
+                  onChange={[Function]}
+                  placholder="File"
+                  type="file"
+                  value={undefined}
+/>,
+                <button
+                  className="import-save-button"
+>
+                  Save
+</button>,
+              ],
+            },
+            "ref": null,
+            "rendered": Array [
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "accept": "audio/*",
+                  "className": "import-file-input",
+                  "name": "file",
+                  "onChange": [Function],
+                  "placholder": "File",
+                  "type": "file",
+                  "value": undefined,
+                },
+                "ref": null,
+                "rendered": null,
+                "type": "input",
+              },
+              Object {
+                "instance": null,
+                "key": undefined,
+                "nodeType": "host",
+                "props": Object {
+                  "children": "Save",
+                  "className": "import-save-button",
+                },
+                "ref": null,
+                "rendered": "Save",
+                "type": "button",
+              },
+            ],
+            "type": "div",
+          },
+        ],
+        "type": "form",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Import Audio
+</h1>,
+          <form
+            className="import-audio"
+            onSubmit={[Function]}
+>
+            <input
+                        className="import-input"
+                        name="name"
+                        onChange={[Function]}
+                        placeholder="Name"
+                        value={undefined}
+            />
+            <select
+                        className="import-input"
+                        name="speed"
+                        onChange={[Function]}
+                        value={undefined}
+            >
+                        <option
+                                    default={true}
+                        >
+                                    Speed
+                        </option>
+                        <option>
+                                    Warmup/ Cooldown
+                        </option>
+                        <option>
+                                    Jog
+                        </option>
+                        <option>
+                                    Sprint
+                        </option>
+            </select>
+            <div>
+                        <input
+                                    accept="audio/*"
+                                    className="import-file-input"
+                                    name="file"
+                                    onChange={[Function]}
+                                    placholder="File"
+                                    type="file"
+                                    value={undefined}
+                        />
+                        <button
+                                    className="import-save-button"
+                        >
+                                    Save
+                        </button>
+            </div>
+</form>,
+        ],
+        "className": "import-container",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Import Audio",
+          },
+          "ref": null,
+          "rendered": "Import Audio",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <input
+                className="import-input"
+                name="name"
+                onChange={[Function]}
+                placeholder="Name"
+                value={undefined}
+/>,
+              <select
+                className="import-input"
+                name="speed"
+                onChange={[Function]}
+                value={undefined}
+>
+                <option
+                                default={true}
+                >
+                                Speed
+                </option>
+                <option>
+                                Warmup/ Cooldown
+                </option>
+                <option>
+                                Jog
+                </option>
+                <option>
+                                Sprint
+                </option>
+</select>,
+              <div>
+                <input
+                                accept="audio/*"
+                                className="import-file-input"
+                                name="file"
+                                onChange={[Function]}
+                                placholder="File"
+                                type="file"
+                                value={undefined}
+                />
+                <button
+                                className="import-save-button"
+                >
+                                Save
+                </button>
+</div>,
+            ],
+            "className": "import-audio",
+            "onSubmit": [Function],
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "className": "import-input",
+                "name": "name",
+                "onChange": [Function],
+                "placeholder": "Name",
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": null,
+              "type": "input",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <option
+                    default={true}
+>
+                    Speed
+</option>,
+                  <option>
+                    Warmup/ Cooldown
+</option>,
+                  <option>
+                    Jog
+</option>,
+                  <option>
+                    Sprint
+</option>,
+                ],
+                "className": "import-input",
+                "name": "speed",
+                "onChange": [Function],
+                "value": undefined,
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Speed",
+                    "default": true,
+                  },
+                  "ref": null,
+                  "rendered": "Speed",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Warmup/ Cooldown",
+                  },
+                  "ref": null,
+                  "rendered": "Warmup/ Cooldown",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Jog",
+                  },
+                  "ref": null,
+                  "rendered": "Jog",
+                  "type": "option",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Sprint",
+                  },
+                  "ref": null,
+                  "rendered": "Sprint",
+                  "type": "option",
+                },
+              ],
+              "type": "select",
+            },
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": Array [
+                  <input
+                    accept="audio/*"
+                    className="import-file-input"
+                    name="file"
+                    onChange={[Function]}
+                    placholder="File"
+                    type="file"
+                    value={undefined}
+/>,
+                  <button
+                    className="import-save-button"
+>
+                    Save
+</button>,
+                ],
+              },
+              "ref": null,
+              "rendered": Array [
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "accept": "audio/*",
+                    "className": "import-file-input",
+                    "name": "file",
+                    "onChange": [Function],
+                    "placholder": "File",
+                    "type": "file",
+                    "value": undefined,
+                  },
+                  "ref": null,
+                  "rendered": null,
+                  "type": "input",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": "Save",
+                    "className": "import-save-button",
+                  },
+                  "ref": null,
+                  "rendered": "Save",
+                  "type": "button",
+                },
+              ],
+              "type": "div",
+            },
+          ],
+          "type": "form",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;
