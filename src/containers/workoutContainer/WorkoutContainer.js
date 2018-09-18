@@ -3,6 +3,8 @@ import './workoutContainer.css';
 import { connect } from 'react-redux';
 import { storeWorkout } from '../../actions/index';
 import ReactPlayer from 'react-player';
+import PropTypes from 'prop-types';
+
 
 export class WorkoutContainer extends Component {
   constructor() {
@@ -46,13 +48,13 @@ export class WorkoutContainer extends Component {
 	    newWorkout = [this.state];
 	  }
 
-		const id = 'workout';
+	  const id = 'workout';
 	  const workout = JSON.stringify(newWorkout);
-		localStorage.setItem(id, workout);
+	  localStorage.setItem(id, workout);
 
-		this.setState ({
-			playing: ''
-		})
+	  this.setState({
+	    playing: ''
+	  });
 		
 	  this.props.addWorkout(this.state);
 	  this.resetFields();
@@ -101,8 +103,8 @@ export class WorkoutContainer extends Component {
 	      <div className='workout-name'>
 	        <p>Name</p>
 	        <input 
-						className='workout-inputs'
-						placeholder='Name'
+	          className='workout-inputs'
+	          placeholder='Name'
 	          name='name' 
 	          value={this.state.name} 
 	          onChange={this.handleChange}
@@ -132,8 +134,8 @@ export class WorkoutContainer extends Component {
 	            onChange={this.handleChange}
 	          >
 	            <option>Choose Sample</option>
-	            {this.props.warmupFile.map((file, i) => {
-	              return <option key={i}>{file.id}</option>;
+	            {this.props.warmupFile.map((file, index) => {
+	              return <option key={index}>{file.id}</option>;
 	            })}
 	          </select>
 	        </div>
@@ -148,7 +150,7 @@ export class WorkoutContainer extends Component {
 	            <option default>Choose Custom</option>
 	            {this.props.customFile.filter(file => {
 	              return file.speed === 'Warmup/ Cooldown';
-	            }).map(warmup => <option>{warmup.name}</option>)}
+	            }).map((warmup, index) => <option key={index}>{warmup.name}</option>)}
 	          </select>
 	          <select 
 	            className='sample-duration'
@@ -163,7 +165,7 @@ export class WorkoutContainer extends Component {
 	          </select>
 	          <button 
 	            className='preview-button warmup-preview'
-	            onClick={(e) => this.playPreview('warmup', e)}	
+	            onClick={(event) => this.playPreview('warmup', event)}	
 	          >Preview</button>
 	        </div>
 	      </div>
@@ -179,8 +181,8 @@ export class WorkoutContainer extends Component {
 	            onChange={this.handleChange}
 	          >
 	            <option>Choose Sample</option>
-	            {this.props.jogFile.map((file, i) => {
-	              return <option key={i}>{file.id}</option>;
+	            {this.props.jogFile.map((file, index) => {
+	              return <option key={index}>{file.id}</option>;
 	            })}
 	          </select>
 	        </div>
@@ -195,7 +197,7 @@ export class WorkoutContainer extends Component {
 	            <option default>Choose Custom</option>
 	            {this.props.customFile.filter(file => {
 	              return file.speed === 'Jog';
-	            }).map(warmup => <option>{warmup.name}</option>)}
+	            }).map((warmup, index) => <option key={index}>{warmup.name}</option>)}
 	          </select>
 	        </div>
 	        <select 
@@ -211,7 +213,7 @@ export class WorkoutContainer extends Component {
 	        </select>
 	        <button 
 	          className='preview-button jog-preview'
-	          onClick={(e) => this.playPreview('jog', e)}	
+	          onClick={(event) => this.playPreview('jog', event)}	
 	        >Preview</button>
 	      </div>
 	      <div className='speed-container'>
@@ -226,8 +228,8 @@ export class WorkoutContainer extends Component {
 	            onChange={this.handleChange}
 	          >
 	            <option>Choose Sample</option>
-	            {this.props.sprintFile.map((file, i) => {
-	              return <option key={i}>{file.id}</option>;
+	            {this.props.sprintFile.map((file, index) => {
+	              return <option key={index}>{file.id}</option>;
 	            })}
 	          </select>
 	        </div>
@@ -242,7 +244,7 @@ export class WorkoutContainer extends Component {
 	            <option default>Choose Custom</option>
 	            {this.props.customFile.filter(file => {
 	              return file.speed === 'Sprint';
-	            }).map(warmup => <option>{warmup.name}</option>)}
+	            }).map((warmup, index) => <option key={index}>{warmup.name}</option>)}
 	          </select>
 	        </div>
 	        <select 
@@ -258,7 +260,7 @@ export class WorkoutContainer extends Component {
 	        </select>
 	        <button 
 	          className='preview-button sprint-preview'
-	          onClick={(e) => this.playPreview('sprint', e)}		
+	          onClick={(event) => this.playPreview('sprint', event)}		
 	        >Preview</button>
 	      </div>
 	      <button className='save-workout-button'>Save</button>
@@ -266,6 +268,11 @@ export class WorkoutContainer extends Component {
 	  );
 	}
 }
+
+WorkoutContainer.propTypes = {
+  sprintFile: PropTypes.array,
+  jogFile: PropTypes.array
+};
 
 export const mapStateToProps = state => ({
   jogFile: state.JogPace,

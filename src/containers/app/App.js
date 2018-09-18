@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Route, withRouter, NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-
 import { clientId } from '../../keys';
 import { storeJog, storeWarmup, storeSprint, populateWorkout } from '../../actions/index';
 import { fetchUser, fetchAudio } from '../../helpers/Fetch';
@@ -23,9 +22,9 @@ export class App extends Component {
   
   componentDidMount = () => {
     let data = window.location.search;
-    
+
     this.setState({
-      code: data.split('').splice(6, data.length).join('')});
+      code: data.split('').splice(6, data.length).join("")});
   }
 
   logOut = () => {
@@ -60,9 +59,7 @@ export class App extends Component {
           return <DesktopDisplayContainer 
             handleDesktopClick={this.handleDesktopClick}/>;
         }} />
-        <Route exact path='/import' render={() => {
-          return <ImportContainer />;
-        }} />
+        <Route exact path='/import' component={ImportContainer} />
         <Route exact path='/workout' render={() => {
           return <WorkoutContainer />;
         }} />
