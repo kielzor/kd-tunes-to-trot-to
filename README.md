@@ -4,3 +4,6 @@
 
 ## This application was made with React, Redux, Router, CSS, and Javascript. It was testing using Enzyme and Jest.
 
+
+<img src='kd-tunes-to-trot-to/images/Screen Shot 2018-09-18 at 12.59.15 PM.png'>
+    
