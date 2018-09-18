@@ -22,8 +22,8 @@ export class WorkoutContainer extends Component {
     };
   }
 
-	handleChange = (e) => {
-	  const { name, value } = e.target;
+	handleChange = (event) => {
+	  const { name, value } = event.target;
 
 	  const custom = this.props.customFile.filter(file => value === file.name);
 
@@ -37,8 +37,8 @@ export class WorkoutContainer extends Component {
 	  });
 	}
 
-	saveWorkout = (e) => {
-	  e.preventDefault();
+	saveWorkout = (event) => {
+	  event.preventDefault();
 	  let newWorkout;
 
 	  if (localStorage.length) {
@@ -73,8 +73,8 @@ export class WorkoutContainer extends Component {
 	  });
 	}
 
-	playPreview = (type, e) => {
-	  e.preventDefault();
+	playPreview = (type, event) => {
+	  event.preventDefault();
 	  let preview = '';
 
 	  if (type === 'warmup') preview = this.state.warmup;
@@ -271,6 +271,9 @@ export class WorkoutContainer extends Component {
 
 WorkoutContainer.propTypes = {
   sprintFile: PropTypes.array,
+  warmupFile: PropTypes.array,
+  addWorkout: PropTypes.array,
+  customFile: PropTypes.array,
   jogFile: PropTypes.array
 };
 
