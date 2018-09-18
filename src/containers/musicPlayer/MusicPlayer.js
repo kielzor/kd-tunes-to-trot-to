@@ -17,8 +17,8 @@ export class MusicPlayer extends Component{
     };
   }
 
-  handleChange = e => {
-    const { value } = e.target;
+  handleChange = event => {
+    const { value } = event.target;
     
     if ( value === 'Choose Workout') return;
 
@@ -129,8 +129,8 @@ export class MusicPlayer extends Component{
           value={this.state.value}
         >
           <option selected='selected'>Choose Workout</option>
-          {this.props.workout.map(file => {
-            return <option>{file.name}</option>;
+          {this.props.workout.map((file, index) => {
+            return <option key={index}>{file.name}</option>;
           })}
         </select>
       </div>
