@@ -15,16 +15,16 @@ export class ImportContainer extends Component {
     };
   }
 
-	handleChange = (e) => {
-	  const { name, value } = e.target;
+	handleChange = (event) => {
+	  const { name, value } = event.target;
 
 	  this.setState({
 	    [name]: value
 	  });
 	}
 
-	handleSubmit = (e) => {
-	  e.preventDefault();
+	handleSubmit = (event) => {
+	  event.preventDefault();
 	  this.props.addUserAudioFile(this.state);
 	}
 

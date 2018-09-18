@@ -10,3 +10,4 @@ src/components/desktopDisplayContainer/DesktopDisplayContainer.test.js
 /src/actions/index.test.js
 /coverage/lcov-report/prettify.js
 /jest.config.js
+/coverage/lcov-report/sorter.js
