@@ -23,9 +23,9 @@ export class App extends Component {
   
   componentDidMount = () => {
     let data = window.location.search;
-    
+
     this.setState({
-      code: data.split('').splice(6, data.length).join('')});
+      code: data.split('').splice(6, data.length).join("")});
   }
 
   logOut = () => {
