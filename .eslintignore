@@ -1,1 +1,12 @@
 /src/registerServiceWorker.js
+/src/reducers/tests
+/src/helpers/Fetch.test.js
+/src/containers/workoutContainer/workoutContainer.test.js
+/src/containers/musicPlayer/musicPlayer.test.js
+/src/containers/importContainer/ImportContainer.test.js
+/src/containers/app/App.test.js
+/src/components/header/header.test.js
+src/components/desktopDisplayContainer/DesktopDisplayContainer.test.js
+/src/actions/index.test.js
+/coverage/lcov-report/prettify.js
+/jest.config.js

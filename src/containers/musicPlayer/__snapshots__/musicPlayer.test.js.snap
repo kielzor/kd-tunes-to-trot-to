@@ -1,0 +1,557 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MusicPlayer should match the snapshot 1`] = `
+ShallowWrapper {
+  Symbol(enzyme.__root__): [Circular],
+  Symbol(enzyme.__unrendered__): <MusicPlayer
+    workout={Array []}
+/>,
+  Symbol(enzyme.__renderer__): Object {
+    "batchedUpdates": [Function],
+    "getNode": [Function],
+    "render": [Function],
+    "simulateError": [Function],
+    "simulateEvent": [Function],
+    "unmount": [Function],
+  },
+  Symbol(enzyme.__node__): Object {
+    "instance": null,
+    "key": undefined,
+    "nodeType": "host",
+    "props": Object {
+      "children": Array [
+        <h1>
+          Choose your workout!!
+</h1>,
+        <ReactPlayer
+          className="player"
+          config={
+                    Object {
+                              "dailymotion": Object {
+                                "params": Object {
+                                  "api": 1,
+                                  "endscreen-enable": false,
+                                },
+                                "preload": false,
+                              },
+                              "facebook": Object {
+                                "appId": "1309697205772819",
+                              },
+                              "file": Object {
+                                "attributes": Object {},
+                                "forceAudio": false,
+                                "forceDASH": false,
+                                "forceHLS": false,
+                                "forceVideo": false,
+                                "hlsOptions": Object {},
+                                "tracks": Array [],
+                              },
+                              "mixcloud": Object {
+                                "options": Object {
+                                  "hide_cover": 1,
+                                },
+                              },
+                              "soundcloud": Object {
+                                "options": Object {
+                                  "buying": false,
+                                  "download": false,
+                                  "liking": false,
+                                  "sharing": false,
+                                  "show_comments": false,
+                                  "show_playcount": false,
+                                  "visual": true,
+                                },
+                              },
+                              "twitch": Object {
+                                "options": Object {},
+                              },
+                              "vimeo": Object {
+                                "playerOptions": Object {
+                                  "autopause": false,
+                                  "byline": false,
+                                  "portrait": false,
+                                  "title": false,
+                                },
+                                "preload": false,
+                              },
+                              "wistia": Object {
+                                "options": Object {},
+                              },
+                              "youtube": Object {
+                                "playerVars": Object {
+                                  "iv_load_policy": 3,
+                                  "modestbranding": 1,
+                                  "playsinline": 1,
+                                  "rel": 0,
+                                  "showinfo": 0,
+                                },
+                                "preload": false,
+                              },
+                            }
+          }
+          controls={true}
+          height="100px"
+          loop={true}
+          muted={false}
+          onBuffer={[Function]}
+          onDuration={[Function]}
+          onEnded={[Function]}
+          onError={[Function]}
+          onPause={[Function]}
+          onPlay={[Function]}
+          onProgress={[Function]}
+          onReady={[Function]}
+          onSeek={[Function]}
+          onStart={[Function]}
+          playbackRate={1}
+          playing={true}
+          playsinline={false}
+          progressInterval={1000}
+          style={Object {}}
+          url=""
+          volume={null}
+          width="640px"
+          wrapper="div"
+/>,
+        <select
+          className="workout-selector"
+          onChange={[Function]}
+          value={undefined}
+>
+          <option
+                    selected="selected"
+          >
+                    Choose Workout
+          </option>
+</select>,
+      ],
+      "className": "player-parent",
+    },
+    "ref": null,
+    "rendered": Array [
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": "Choose your workout!!",
+        },
+        "ref": null,
+        "rendered": "Choose your workout!!",
+        "type": "h1",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "class",
+        "props": Object {
+          "className": "player",
+          "config": Object {
+            "dailymotion": Object {
+              "params": Object {
+                "api": 1,
+                "endscreen-enable": false,
+              },
+              "preload": false,
+            },
+            "facebook": Object {
+              "appId": "1309697205772819",
+            },
+            "file": Object {
+              "attributes": Object {},
+              "forceAudio": false,
+              "forceDASH": false,
+              "forceHLS": false,
+              "forceVideo": false,
+              "hlsOptions": Object {},
+              "tracks": Array [],
+            },
+            "mixcloud": Object {
+              "options": Object {
+                "hide_cover": 1,
+              },
+            },
+            "soundcloud": Object {
+              "options": Object {
+                "buying": false,
+                "download": false,
+                "liking": false,
+                "sharing": false,
+                "show_comments": false,
+                "show_playcount": false,
+                "visual": true,
+              },
+            },
+            "twitch": Object {
+              "options": Object {},
+            },
+            "vimeo": Object {
+              "playerOptions": Object {
+                "autopause": false,
+                "byline": false,
+                "portrait": false,
+                "title": false,
+              },
+              "preload": false,
+            },
+            "wistia": Object {
+              "options": Object {},
+            },
+            "youtube": Object {
+              "playerVars": Object {
+                "iv_load_policy": 3,
+                "modestbranding": 1,
+                "playsinline": 1,
+                "rel": 0,
+                "showinfo": 0,
+              },
+              "preload": false,
+            },
+          },
+          "controls": true,
+          "height": "100px",
+          "loop": true,
+          "muted": false,
+          "onBuffer": [Function],
+          "onDuration": [Function],
+          "onEnded": [Function],
+          "onError": [Function],
+          "onPause": [Function],
+          "onPlay": [Function],
+          "onProgress": [Function],
+          "onReady": [Function],
+          "onSeek": [Function],
+          "onStart": [Function],
+          "playbackRate": 1,
+          "playing": true,
+          "playsinline": false,
+          "progressInterval": 1000,
+          "style": Object {},
+          "url": "",
+          "volume": null,
+          "width": "640px",
+          "wrapper": "div",
+        },
+        "ref": null,
+        "rendered": null,
+        "type": [Function],
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": Array [
+            <option
+              selected="selected"
+>
+              Choose Workout
+</option>,
+            Array [],
+          ],
+          "className": "workout-selector",
+          "onChange": [Function],
+          "value": undefined,
+        },
+        "ref": null,
+        "rendered": Array [
+          Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Choose Workout",
+              "selected": "selected",
+            },
+            "ref": null,
+            "rendered": "Choose Workout",
+            "type": "option",
+          },
+        ],
+        "type": "select",
+      },
+    ],
+    "type": "div",
+  },
+  Symbol(enzyme.__nodes__): Array [
+    Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": Array [
+          <h1>
+            Choose your workout!!
+</h1>,
+          <ReactPlayer
+            className="player"
+            config={
+                        Object {
+                                    "dailymotion": Object {
+                                      "params": Object {
+                                        "api": 1,
+                                        "endscreen-enable": false,
+                                      },
+                                      "preload": false,
+                                    },
+                                    "facebook": Object {
+                                      "appId": "1309697205772819",
+                                    },
+                                    "file": Object {
+                                      "attributes": Object {},
+                                      "forceAudio": false,
+                                      "forceDASH": false,
+                                      "forceHLS": false,
+                                      "forceVideo": false,
+                                      "hlsOptions": Object {},
+                                      "tracks": Array [],
+                                    },
+                                    "mixcloud": Object {
+                                      "options": Object {
+                                        "hide_cover": 1,
+                                      },
+                                    },
+                                    "soundcloud": Object {
+                                      "options": Object {
+                                        "buying": false,
+                                        "download": false,
+                                        "liking": false,
+                                        "sharing": false,
+                                        "show_comments": false,
+                                        "show_playcount": false,
+                                        "visual": true,
+                                      },
+                                    },
+                                    "twitch": Object {
+                                      "options": Object {},
+                                    },
+                                    "vimeo": Object {
+                                      "playerOptions": Object {
+                                        "autopause": false,
+                                        "byline": false,
+                                        "portrait": false,
+                                        "title": false,
+                                      },
+                                      "preload": false,
+                                    },
+                                    "wistia": Object {
+                                      "options": Object {},
+                                    },
+                                    "youtube": Object {
+                                      "playerVars": Object {
+                                        "iv_load_policy": 3,
+                                        "modestbranding": 1,
+                                        "playsinline": 1,
+                                        "rel": 0,
+                                        "showinfo": 0,
+                                      },
+                                      "preload": false,
+                                    },
+                                  }
+            }
+            controls={true}
+            height="100px"
+            loop={true}
+            muted={false}
+            onBuffer={[Function]}
+            onDuration={[Function]}
+            onEnded={[Function]}
+            onError={[Function]}
+            onPause={[Function]}
+            onPlay={[Function]}
+            onProgress={[Function]}
+            onReady={[Function]}
+            onSeek={[Function]}
+            onStart={[Function]}
+            playbackRate={1}
+            playing={true}
+            playsinline={false}
+            progressInterval={1000}
+            style={Object {}}
+            url=""
+            volume={null}
+            width="640px"
+            wrapper="div"
+/>,
+          <select
+            className="workout-selector"
+            onChange={[Function]}
+            value={undefined}
+>
+            <option
+                        selected="selected"
+            >
+                        Choose Workout
+            </option>
+</select>,
+        ],
+        "className": "player-parent",
+      },
+      "ref": null,
+      "rendered": Array [
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Choose your workout!!",
+          },
+          "ref": null,
+          "rendered": "Choose your workout!!",
+          "type": "h1",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "class",
+          "props": Object {
+            "className": "player",
+            "config": Object {
+              "dailymotion": Object {
+                "params": Object {
+                  "api": 1,
+                  "endscreen-enable": false,
+                },
+                "preload": false,
+              },
+              "facebook": Object {
+                "appId": "1309697205772819",
+              },
+              "file": Object {
+                "attributes": Object {},
+                "forceAudio": false,
+                "forceDASH": false,
+                "forceHLS": false,
+                "forceVideo": false,
+                "hlsOptions": Object {},
+                "tracks": Array [],
+              },
+              "mixcloud": Object {
+                "options": Object {
+                  "hide_cover": 1,
+                },
+              },
+              "soundcloud": Object {
+                "options": Object {
+                  "buying": false,
+                  "download": false,
+                  "liking": false,
+                  "sharing": false,
+                  "show_comments": false,
+                  "show_playcount": false,
+                  "visual": true,
+                },
+              },
+              "twitch": Object {
+                "options": Object {},
+              },
+              "vimeo": Object {
+                "playerOptions": Object {
+                  "autopause": false,
+                  "byline": false,
+                  "portrait": false,
+                  "title": false,
+                },
+                "preload": false,
+              },
+              "wistia": Object {
+                "options": Object {},
+              },
+              "youtube": Object {
+                "playerVars": Object {
+                  "iv_load_policy": 3,
+                  "modestbranding": 1,
+                  "playsinline": 1,
+                  "rel": 0,
+                  "showinfo": 0,
+                },
+                "preload": false,
+              },
+            },
+            "controls": true,
+            "height": "100px",
+            "loop": true,
+            "muted": false,
+            "onBuffer": [Function],
+            "onDuration": [Function],
+            "onEnded": [Function],
+            "onError": [Function],
+            "onPause": [Function],
+            "onPlay": [Function],
+            "onProgress": [Function],
+            "onReady": [Function],
+            "onSeek": [Function],
+            "onStart": [Function],
+            "playbackRate": 1,
+            "playing": true,
+            "playsinline": false,
+            "progressInterval": 1000,
+            "style": Object {},
+            "url": "",
+            "volume": null,
+            "width": "640px",
+            "wrapper": "div",
+          },
+          "ref": null,
+          "rendered": null,
+          "type": [Function],
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": Array [
+              <option
+                selected="selected"
+>
+                Choose Workout
+</option>,
+              Array [],
+            ],
+            "className": "workout-selector",
+            "onChange": [Function],
+            "value": undefined,
+          },
+          "ref": null,
+          "rendered": Array [
+            Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "host",
+              "props": Object {
+                "children": "Choose Workout",
+                "selected": "selected",
+              },
+              "ref": null,
+              "rendered": "Choose Workout",
+              "type": "option",
+            },
+          ],
+          "type": "select",
+        },
+      ],
+      "type": "div",
+    },
+  ],
+  Symbol(enzyme.__options__): Object {
+    "adapter": ReactSixteenAdapter {
+      "options": Object {
+        "enableComponentDidUpdateOnSetState": true,
+        "lifecycles": Object {
+          "componentDidUpdate": Object {
+            "onSetState": true,
+          },
+          "getDerivedStateFromProps": true,
+          "getSnapshotBeforeUpdate": true,
+          "setState": Object {
+            "skipsComponentDidUpdateOnNullish": true,
+          },
+        },
+      },
+    },
+    "attachTo": undefined,
+    "hydrateIn": undefined,
+  },
+}
+`;

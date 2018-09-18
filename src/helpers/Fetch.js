@@ -6,13 +6,13 @@ export const fetchUser = async (code) => {
 			{ method: 'POST',
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded', 
-					'accept': 'application/json',
+					'accept': 'application/json'
 				}
 			})
 		const data = await response.json()
 		return await data.access_token
 	} catch (error) {
-		console.log('error', error.message)
+		alert('error', error.message)
 	}
 }
 

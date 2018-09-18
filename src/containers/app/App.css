@@ -27,5 +27,6 @@
   background-color: #3C7A89;
   color: white; }
 
-a {
+.a-tag {
+  height: 10rem;
   color: #DBC2CF; }

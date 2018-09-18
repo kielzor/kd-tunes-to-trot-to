@@ -128,6 +128,7 @@ ShallowWrapper {
                     className="workout-inputs"
                     name="name"
                     onChange={[Function]}
+                    placeholder="Name"
                     value=""
           />
           <p>
@@ -142,7 +143,7 @@ ShallowWrapper {
                     <option
                               selected="selected"
                     >
-                              Workout Length
+                              Length
                     </option>
                     <option>
                               1:00:00
@@ -499,6 +500,7 @@ ShallowWrapper {
               className="workout-inputs"
               name="name"
               onChange={[Function]}
+              placeholder="Name"
               value=""
 />,
             <p>
@@ -513,7 +515,7 @@ ShallowWrapper {
               <option
                             selected="selected"
               >
-                            Workout Length
+                            Length
               </option>
               <option>
                             1:00:00
@@ -549,6 +551,7 @@ ShallowWrapper {
               "className": "workout-inputs",
               "name": "name",
               "onChange": [Function],
+              "placeholder": "Name",
               "value": "",
             },
             "ref": null,
@@ -575,7 +578,7 @@ ShallowWrapper {
                 <option
                   selected="selected"
 >
-                  Workout Length
+                  Length
 </option>,
                 <option>
                   1:00:00
@@ -599,11 +602,11 @@ ShallowWrapper {
                 "key": undefined,
                 "nodeType": "host",
                 "props": Object {
-                  "children": "Workout Length",
+                  "children": "Length",
                   "selected": "selected",
                 },
                 "ref": null,
-                "rendered": "Workout Length",
+                "rendered": "Length",
                 "type": "option",
               },
               Object {
@@ -1722,6 +1725,7 @@ ShallowWrapper {
                         className="workout-inputs"
                         name="name"
                         onChange={[Function]}
+                        placeholder="Name"
                         value=""
             />
             <p>
@@ -1736,7 +1740,7 @@ ShallowWrapper {
                         <option
                                     selected="selected"
                         >
-                                    Workout Length
+                                    Length
                         </option>
                         <option>
                                     1:00:00
@@ -2093,6 +2097,7 @@ ShallowWrapper {
                 className="workout-inputs"
                 name="name"
                 onChange={[Function]}
+                placeholder="Name"
                 value=""
 />,
               <p>
@@ -2107,7 +2112,7 @@ ShallowWrapper {
                 <option
                                 selected="selected"
                 >
-                                Workout Length
+                                Length
                 </option>
                 <option>
                                 1:00:00
@@ -2143,6 +2148,7 @@ ShallowWrapper {
                 "className": "workout-inputs",
                 "name": "name",
                 "onChange": [Function],
+                "placeholder": "Name",
                 "value": "",
               },
               "ref": null,
@@ -2169,7 +2175,7 @@ ShallowWrapper {
                   <option
                     selected="selected"
 >
-                    Workout Length
+                    Length
 </option>,
                   <option>
                     1:00:00
@@ -2193,11 +2199,11 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": "Workout Length",
+                    "children": "Length",
                     "selected": "selected",
                   },
                   "ref": null,
-                  "rendered": "Workout Length",
+                  "rendered": "Length",
                   "type": "option",
                 },
                 Object {
