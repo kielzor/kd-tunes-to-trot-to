@@ -115,24 +115,26 @@ export class MusicPlayer extends Component{
         <h1>
           {this.state.currentWorkout}
         </h1>
-        <ReactPlayer 
-          className='player'
-          url={this.state.id} 
-          playing 
-          controls
-          height='100px'
-          loop
-        />
-        <select
-          className='workout-selector'
-          onChange={this.handleChange}
-          value={this.state.value}
-        >
-          <option selected='selected'>Choose Workout</option>
-          {this.props.workout.map((file, index) => {
-            return <option key={index}>{file.name}</option>;
-          })}
-        </select>
+        <div className='player-bottom'>
+          <ReactPlayer 
+            className='player'
+            url={this.state.id} 
+            playing 
+            controls
+            height='100px'
+            loop
+          />
+          <select
+            className='workout-selector'
+            onChange={this.handleChange}
+            value={this.state.value}
+          >
+            <option selected='selected'>Choose Workout</option>
+            {this.props.workout.map((file, index) => {
+              return <option key={index}>{file.name}</option>;
+            })}
+          </select>
+        </div>
       </div>
     );
   }

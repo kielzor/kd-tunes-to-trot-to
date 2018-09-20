@@ -68,7 +68,7 @@ export class App extends Component {
         }} />
         <Route exact path='/' render={() => {
           return (
-            <div>
+            <div className='intro'>
               {!this.state.code && 
                 <a className='a-tag' href={`https://freesound.org/apiv2/oauth2/authorize/?client_id=${clientId}&response_type=code`}>Login with freesound</a>}
               {this.state.code && 

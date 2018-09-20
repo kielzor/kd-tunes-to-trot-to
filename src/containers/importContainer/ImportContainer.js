@@ -31,8 +31,8 @@ export class ImportContainer extends Component {
 	render () {
 	  return (
 	    <div className='import-container'>
-	      <h1>Import Audio</h1>
 	      <form className='import-audio' onSubmit={this.handleSubmit}>
+	      <h1>Import Audio</h1>
 	        <input 
 	          placeholder='Name' 
 	          className='import-input'

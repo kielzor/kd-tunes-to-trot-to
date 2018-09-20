@@ -6,4 +6,12 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; }
+  justify-content: flex-start;
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ-5v78072GCNPpAdA1sUvbrBdZOV-H2iMCNziQEtpZTH0JlEKlAA");
+  background-size: cover;
+  height: 80vh;
+  opacity: .8;
+  color: #2E4756; }
+
+.player-bottom {
+  margin-top: 25rem; }
